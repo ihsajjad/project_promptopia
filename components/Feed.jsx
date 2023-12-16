@@ -9,6 +9,8 @@ import Image from "next/image";
 const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
   const [copied, setCopied] = useState("");
 
+  console.log(post);
+
   const handleCopy = () => {
     setCopied(post.prompt);
     navigator.clipboard.writeText(post.prompt);
@@ -66,7 +68,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
 const Feed = () => {
   const [searchText, setSearchText] = useState("");
   const [posts, setPosts] = useState([]);
-
+  console.log(posts);
   useEffect(() => {
     const loadPosts = async () => {
       const response = await fetch("/api/prompt");
